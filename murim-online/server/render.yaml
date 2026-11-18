@@ -1,0 +1,12 @@
+# Render.com blueprint — free hosting for the Murim Login server.
+# Push this repo to GitHub, then Render dashboard → New → Blueprint → pick repo.
+services:
+  - type: web
+    name: murim-server
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    autoDeploy: true

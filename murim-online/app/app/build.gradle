@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+}
+android {
+    namespace 'com.murimlogin.game'
+    compileSdk 33
+    defaultConfig {
+        applicationId 'com.murimlogin.game'
+        minSdk 24
+        targetSdk 33
+        versionCode 16
+        versionName '16.0'
+    }
+    signingConfigs {
+        debug {
+            storeFile rootProject.file('murim-debug.keystore')
+            storePassword 'murim123'
+            keyAlias 'murimdebug'
+            keyPassword 'murim123'
+        }
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
